@@ -1,0 +1,46 @@
+@use '../../styles/variables' as *;
+
+.burger-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 250px;
+  height: 100vh;
+  background-color: $color-bg-card;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.5);
+  padding: $spacing-xl $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+  transition: right 0.3s ease;
+  z-index: 1000;
+
+  &--open {
+    right: 0;
+  }
+
+  &__close-btn {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    color: $color-text-main;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+
+  &__link {
+    color: $color-text-main;
+    text-decoration: none;
+    font-size: 1.1rem;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}

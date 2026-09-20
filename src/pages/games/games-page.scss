@@ -1,0 +1,60 @@
+@use '../../styles/variables' as *;
+
+.games-page {
+  padding: $space-2xl 0;
+}
+
+.games-title {
+  font-size: $font-size-3xl;
+  font-weight: 800;
+  color: $color-text-main;
+  margin-bottom: $space-2xl;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: $space-xl;
+}
+
+.game-card {
+  background: $color-bg-card;
+  backdrop-filter: blur(12px);
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  padding: $space-xl;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    border-color: rgba(99, 102, 241, 0.4);
+    box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.25);
+  }
+
+  &__icon {
+    font-size: 3rem;
+    margin-bottom: $space-md;
+  }
+
+  h3 {
+    font-size: $font-size-xl;
+    font-weight: 700;
+    color: $color-text-main;
+    margin-bottom: $space-sm;
+  }
+
+  p {
+    color: $color-text-muted;
+    font-size: $font-size-sm;
+    line-height: 1.5;
+    margin-bottom: $space-xl;
+    flex-grow: 1;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+

@@ -1,0 +1,128 @@
+@use '../../styles/variables' as *;
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2xl;
+  padding: $space-2xl 0;
+}
+
+.hero {
+  position: relative;
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: $space-2xl $space-lg;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, rgba(236, 72, 153, 0.15) 50%, transparent 70%);
+    filter: blur(60px);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  &__title {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: $space-lg;
+    letter-spacing: -0.02em;
+
+    span {
+      background: linear-gradient(135deg, #818cf8 0%, #ec4899 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 30px rgba(129, 140, 248, 0.3);
+    }
+  }
+
+  &__subtitle {
+    font-size: $font-size-lg;
+    color: $color-text-muted;
+    max-width: 620px;
+    margin: 0 auto $space-2xl;
+    line-height: 1.6;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    gap: $space-md;
+    flex-wrap: wrap;
+  }
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: $space-lg;
+}
+
+.feature-card {
+  background: $color-bg-card;
+  backdrop-filter: blur(12px);
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  padding: $space-xl;
+  text-align: center;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    border-color: $color-border-glow;
+    box-shadow: $shadow-glow;
+  }
+
+  &__icon {
+    font-size: 3rem;
+    margin-bottom: $space-md;
+    display: inline-block;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+  }
+
+  h3 {
+    font-size: $font-size-xl;
+    font-weight: 700;
+    margin-bottom: $space-sm;
+    color: $color-text-main;
+  }
+
+  p {
+    color: $color-text-muted;
+    font-size: $font-size-sm;
+    line-height: 1.5;
+  }
+}
+
+.feature-card {
+  background: $color-bg-card;
+  backdrop-filter: blur(12px);
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  padding: $space-xl;
+  text-align: center;
+  transition: all 0.3s ease;
+
+  &--clickable {
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-6px);
+      border-color: #818cf8;
+      box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.3);
+    }
+
+    &:active {
+      transform: translateY(-2px);
+    }
+  }
+
+  /* ...остальные стили feature-card... */
+}

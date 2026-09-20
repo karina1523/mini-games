@@ -1,0 +1,148 @@
+@use '../../styles/variables' as *;
+
+.tictactoe-page {
+  padding: $space-xl 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-xl;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 420px; // Ограничиваем общую ширину шапки по размеру игрового поля
+  gap: $space-md;
+
+  h1 {
+    font-size: $font-size-lg;
+    color: $color-text-main;
+    white-space: nowrap; // Запрещаем заголовку переноситься
+    margin: 0;
+  }
+  
+  .btn {
+    padding: 8px 14px;
+    font-size: $font-size-xs;
+  }
+}
+
+
+.game-score-info {
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  padding: 6px 12px;
+  border-radius: $radius-md;
+  color: #a5b4fc;
+  font-size: $font-size-sm;
+  font-weight: 600;
+}
+
+/* Экран выбора режима */
+.mode-selector {
+  background: $color-bg-card;
+  backdrop-filter: blur(16px);
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  padding: $space-2xl;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-xl;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+
+  h2 {
+    color: $color-text-main;
+    font-size: $font-size-xl;
+  }
+
+  .mode-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+    width: 100%;
+
+    button {
+      width: 100%;
+    }
+  }
+}
+
+/* Игровой контейнер */
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-lg;
+  background: $color-bg-card;
+  backdrop-filter: blur(16px);
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  padding: $space-xl;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.game-status {
+  font-size: $font-size-md;
+  color: $color-text-muted;
+  font-weight: 600;
+  text-align: center;
+  min-height: 24px;
+
+  &.win {
+    color: #10b981;
+    text-shadow: 0 0 12px rgba(16, 185, 129, 0.4);
+    font-size: $font-size-lg;
+  }
+}
+
+.tictactoe-board {
+  display: grid;
+  grid-template-columns: repeat(3, 90px);
+  grid-template-rows: repeat(3, 90px);
+  gap: 10px;
+}
+
+.cell {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: rgba(99, 102, 241, 0.6);
+    background: rgba(99, 102, 241, 0.1);
+  }
+
+  &.x {
+    color: #6366f1;
+    text-shadow: 0 0 10px rgba(99, 102, 241, 0.6);
+  }
+
+  &.o {
+    color: #ec4899;
+    text-shadow: 0 0 10px rgba(236, 72, 153, 0.6);
+  }
+}
+
+.game-actions {
+  display: flex;
+  gap: $space-md;
+  width: 100%;
+  justify-content: space-between;
+
+  button {
+    flex: 1;
+  }
+}
